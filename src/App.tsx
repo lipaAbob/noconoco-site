@@ -140,8 +140,8 @@ export default function App() {
         </div>
       </header>
 
-     {/* Hero Section */}
-      <section className="max-w-6xl mx-auto px-6 pt-12 pb-10 md:pt-16 md:pb-12">
+      {/* Hero Section */}
+      <section className="max-w-6xl mx-auto px-6 pt-12 pb-8 md:pt-16 md:pb-10">
         <p className="text-xs font-semibold tracking-[0.2em] uppercase text-[#D46A38] mb-4">
           {t.hero.eyebrow}
         </p>
@@ -168,8 +168,8 @@ export default function App() {
         </div>
       </section>
 
-      {/* Selected Brand Experience Marquee (Centered to Page Width, Right Below Hero) */}
-      <section id="experience" className="max-w-6xl mx-auto px-6 pb-10">
+      {/* Selected Brand Experience Marquee */}
+      <section id="experience" className="max-w-6xl mx-auto px-6 pb-8">
         <div className="border-t border-b border-[#0F1E36]/12 py-6">
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-4">
             <p className="text-xs font-semibold tracking-[0.2em] uppercase text-[#D46A38]">
@@ -191,12 +191,13 @@ export default function App() {
               {[...BRAND_LOGOS, ...BRAND_LOGOS].map((logo, idx) => (
                 <div
                   key={`${logo.name}-${idx}`}
-                  className="h-12 flex items-center justify-center shrink-0 opacity-80 hover:opacity-100 transition-opacity"
+                  className="h-12 flex items-center justify-center shrink-0"
                 >
                   <img
                     src={logo.src}
                     alt={logo.name}
-                    className={`max-h-10 w-auto object-contain grayscale contrast-125 mix-blend-multiply ${logo.scale ?? 'scale-100'}`}
+                    style={{ transform: `scale(${logo.scale ?? 1})` }}
+                    className="max-h-10 w-auto object-contain grayscale contrast-125 mix-blend-multiply opacity-85 hover:opacity-100 transition-opacity"
                   />
                 </div>
               ))}
@@ -204,14 +205,14 @@ export default function App() {
           </div>
         </div>
       </section>
-      
-      {/* Methodology Section */}
-      <section id="methodology" className="max-w-6xl mx-auto px-6 pb-20">
-        <div className="pt-14">
-          <p className="text-xs font-semibold tracking-[0.2em] uppercase text-[#D46A38] mb-3">
+
+      {/* Methodology Section (Tightened Spacing) */}
+      <section id="methodology" className="max-w-6xl mx-auto px-6 pt-4 pb-10">
+        <div>
+          <p className="text-xs font-semibold tracking-[0.2em] uppercase text-[#D46A38] mb-2">
             {t.methodology.eyebrow}
           </p>
-          <h2 className="text-2xl md:text-3xl font-semibold text-[#0F1E36] mb-10">
+          <h2 className="text-2xl md:text-3xl font-semibold text-[#0F1E36] mb-7">
             {t.methodology.title}
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -233,10 +234,10 @@ export default function App() {
         </div>
       </section>
 
-      {/* Capabilities & 4 Interactive Drawers (Dark Navy Squircle Container) */}
-      <section id="capabilities" className="max-w-6xl mx-auto px-4 sm:px-6 pb-24">
-        <div className="squircle-panel bg-[#0F1E36] text-[#F6F3EC] px-6 py-14 sm:px-12 sm:py-16 shadow-xl">
-          <div className="max-w-2xl mb-12">
+      {/* Capabilities & 4 Interactive Drawers (Dark Navy Squircle Container - Tightened Spacing) */}
+      <section id="capabilities" className="max-w-6xl mx-auto px-4 sm:px-6 pb-10">
+        <div className="squircle-panel bg-[#0F1E36] text-[#F6F3EC] px-6 py-12 sm:px-12 sm:py-14 shadow-xl">
+          <div className="max-w-2xl mb-10">
             <p className="text-xs font-semibold tracking-[0.2em] uppercase text-[#D46A38] mb-3">
               {t.capabilities.eyebrow}
             </p>
@@ -321,7 +322,7 @@ export default function App() {
                               </p>
                             </div>
 
-                            {/* Clean Preview Frame (No Overlay Arrows) */}
+                            {/* Clean Preview Frame */}
                             <div className="mt-5">
                               <div
                                 className={`squircle-thumb relative w-full aspect-[16/10] overflow-hidden border border-[#F6F3EC]/10 ${
@@ -373,21 +374,21 @@ export default function App() {
         </div>
       </section>
 
-      {/* Contact Section */}
-      <section id="contact" className="max-w-6xl mx-auto px-6 pb-20">
-        <div className="squircle-card bg-white/75 border border-[#0F1E36]/10 p-8 sm:p-12 flex flex-col md:flex-row md:items-center justify-between gap-8">
+      {/* Contact Section (Terracotta Squircle Box) */}
+      <section id="contact" className="max-w-6xl mx-auto px-6 pb-16">
+        <div className="squircle-card bg-[#D46A38] text-[#F6F3EC] p-8 sm:p-12 flex flex-col md:flex-row md:items-center justify-between gap-8 shadow-lg">
           <div className="max-w-xl">
-            <p className="text-xs font-semibold tracking-[0.2em] uppercase text-[#D46A38] mb-3">
+            <p className="text-xs font-semibold tracking-[0.2em] uppercase text-[#F6F3EC]/85 mb-3">
               {t.contact.eyebrow}
             </p>
-            <h2 className="text-2xl sm:text-3xl font-semibold text-[#0F1E36]">
+            <h2 className="text-2xl sm:text-3xl font-semibold text-[#F6F3EC]">
               {t.contact.title}
             </h2>
-            <p className="mt-3 text-sm sm:text-base text-[#0F1E36]/75 leading-relaxed">
+            <p className="mt-3 text-sm sm:text-base text-[#F6F3EC]/90 leading-relaxed">
               {t.contact.subtitle}
             </p>
-            <div className="mt-5 flex items-center gap-2 text-xs font-medium text-[#0F1E36]/60">
-              <MapPin className="w-3.5 h-3.5 text-[#D46A38]" />
+            <div className="mt-5 flex items-center gap-2 text-xs font-medium text-[#F6F3EC]/85">
+              <MapPin className="w-3.5 h-3.5 text-[#F6F3EC]" />
               <span>{t.contact.location}</span>
             </div>
           </div>
@@ -395,7 +396,7 @@ export default function App() {
           <div className="shrink-0">
             <a
               href={`mailto:${t.contact.emailLabel}`}
-              className="squircle-pill bg-[#0F1E36] text-[#F6F3EC] hover:bg-[#D46A38] transition-colors px-7 py-4 text-sm font-medium inline-flex items-center gap-2.5"
+              className="squircle-pill bg-[#0F1E36] text-[#F6F3EC] hover:bg-[#0F1E36]/90 transition-colors px-7 py-4 text-sm font-medium inline-flex items-center gap-2.5 shadow-md"
             >
               <Mail className="w-4 h-4" />
               {t.contact.emailLabel}
@@ -403,13 +404,13 @@ export default function App() {
           </div>
         </div>
 
-        <footer className="mt-12 pt-6 border-t border-[#0F1E36]/10 flex flex-col sm:flex-row items-center justify-between text-xs text-[#0F1E36]/55 gap-2">
+        <footer className="mt-10 pt-6 border-t border-[#0F1E36]/10 flex flex-col sm:flex-row items-center justify-between text-xs text-[#0F1E36]/55 gap-2">
           <span>{t.footer.rights}</span>
           <span>noconoco.es</span>
         </footer>
       </section>
 
-      {/* True Dark-Backdrop Lightbox (External Controls, Full Uncropped Media) */}
+      {/* True Dark-Backdrop Lightbox (YouTube & Full Uncropped Media) */}
       {lightbox && (
         <div
           onClick={closeLightbox}
@@ -451,14 +452,16 @@ export default function App() {
               )}
 
               <div className="squircle-thumb bg-[#0B1628] border border-[#F6F3EC]/15 overflow-hidden flex items-center justify-center max-h-[75vh] w-full">
-               {lightbox.items[lightbox.index].type === 'video' ? (
-                  <video
-                    src={lightbox.items[lightbox.index].src}
-                    controls
-                    autoPlay
-                    playsInline
-                    className="max-h-[75vh] w-auto max-w-full object-contain"
-                  />
+                {lightbox.items[lightbox.index].type === 'video' ? (
+                  <div className="w-full aspect-video max-h-[75vh]">
+                    <iframe
+                      src={lightbox.items[lightbox.index].src}
+                      title={lightbox.title}
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      allowFullScreen
+                      className="w-full h-full border-0"
+                    />
+                  </div>
                 ) : (
                   <img
                     src={lightbox.items[lightbox.index].src}
