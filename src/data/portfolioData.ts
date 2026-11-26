@@ -43,12 +43,12 @@ export interface DrawerItem {
 
 export const BRAND_LOGOS = [
   { name: 'IBM', src: '/assets/logos/ibmlogo.png', scale: 'scale-100' },
-  { name: 'Prada', src: '/assets/logos/pradalogo.png', scale: 'scale-115' },
-  { name: 'Clinique', src: '/assets/logos/cliniquelogo.png', scale: 'scale-145' },
+  { name: 'Prada', src: '/assets/logos/pradalogo.png', scale: 'scale-100' },
+  { name: 'Clinique', src: '/assets/logos/cliniquelogo.png', scale: 'scale-100' },
   { name: 'Triumph', src: '/assets/logos/triumphlogo.png', scale: 'scale-105' },
-  { name: 'Kenneth Cole', src: '/assets/logos/kenneth-colelogo.png', scale: 'scale-110' },
-  { name: 'Durex', src: '/assets/logos/durexlogo.png', scale: 'scale-115' },
-  { name: 'Clínica Cénit', src: '/assets/logos/cenitlogo.png', scale: 'scale-125' },
+  { name: 'Kenneth Cole', src: '/assets/logos/kenneth-colelogo.png', scale: 'scale-130' },
+  { name: 'Durex', src: '/assets/logos/durexlogo.png', scale: 'scale-100' },
+  { name: 'Clínica Cénit', src: '/assets/logos/cenitlogo.png', scale: 'scale-150' },
   { name: 'EventMatch AI', src: '/assets/logos/eventmatchlogo.png', scale: 'scale-105' },
   { name: 'ExtraCity', src: '/assets/logos/extracitylogo.png', scale: 'scale-105' },
   { name: 'GoldPass', src: '/assets/logos/goldpasslogo2.png', scale: 'scale-130' },
