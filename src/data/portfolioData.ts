@@ -170,7 +170,7 @@ export const DRAWERS: DrawerItem[] = [
   {
     number: '02',
     title: {
-      en: 'STRATEGY · SOLUTIONS · RESULTS',
+      en: 'AI Product Development & Solutions',
       es: 'Desarrollo y Soluciones de Producto con IA',
     },
     summary: {
