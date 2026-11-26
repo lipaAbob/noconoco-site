@@ -243,7 +243,7 @@ export const DRAWERS: DrawerItem[] = [
         media: [
           {
             type: 'video',
-            src: '[https://www.youtube.com/embed/qgYZDFw35mc?autoplay=1&rel=0](https://www.youtube.com/embed/qgYZDFw35mc?autoplay=1&rel=0)'
+            src: 'https://www.youtube.com/embed/qgYZDFw35mc?autoplay=1&rel=0',
             caption: {
               en: 'GoldPass — Product Trailer & Local Ecosystem Overview',
               es: 'GoldPass — Tráiler de Producto y Ecosistema Local',
