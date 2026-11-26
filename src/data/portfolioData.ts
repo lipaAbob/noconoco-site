@@ -262,7 +262,7 @@ export const DRAWERS: DrawerItem[] = [
           en: 'Intent-driven mobile experience matching real-time user mood and proximity with curated local venues and instant redemption.',
           es: 'Experiencia móvil basada en intención que conecta el momento y la ubicación del usuario con comercios cercanos y canje inmediato.',
         },
-        coverSrc: '/assets/logos/mymodelogo.png',
+        coverSrc: '/assets/logos/mymodelogo2.png',
         coverFit: 'contain',
         coverFocal: 'object-center',
         actionType: 'lightbox',
