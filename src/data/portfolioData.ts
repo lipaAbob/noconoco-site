@@ -269,7 +269,7 @@ export const DRAWERS: DrawerItem[] = [
         media: [
           {
             type: 'image',
-            src: '/assets/images/mymodelogo2.png',
+            src: '/assets/images/mymodelogo.jpg',
             caption: {
               en: 'MyMode — 3-Step Contextual User Journey & Redemption Flow',
               es: 'MyMode — Flujo Contextual de 3 Pasos y Canje en Tienda',
