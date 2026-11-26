@@ -210,7 +210,7 @@ export const DRAWERS: DrawerItem[] = [
         coverFit: 'cover',
         coverFocal: 'object-top',
         actionType: 'external',
-        externalUrl: 'https://eventmatch-ai.lovable.app/',
+        externalUrl: 'https://eventmatch-ai-henna.vercel.app/',
       },
     ],
   },
@@ -243,7 +243,7 @@ export const DRAWERS: DrawerItem[] = [
         media: [
           {
             type: 'video',
-            src: 'https://www.youtube.com/embed/qgYZDFw35mc?autoplay=1&rel=0',
+            src: '[https://www.youtube.com/embed/qgYZDFw35mc?autoplay=1&rel=0](https://www.youtube.com/embed/qgYZDFw35mc?autoplay=1&rel=0)'
             caption: {
               en: 'GoldPass — Product Trailer & Local Ecosystem Overview',
               es: 'GoldPass — Tráiler de Producto y Ecosistema Local',
@@ -381,7 +381,7 @@ export const COPY = {
       cta: "Let's Talk",
     },
     hero: {
-      eyebrow: 'STRATEGY · AI PRODUCTS · CREATIVE DIRECTION',
+      eyebrow: 'STRATEGY · SOLUTIONS · RESULTS',
       headline: 'Turning complex challenges into clear, measurable results.',
       subheadline:
         'noconoco is a boutique consultancy partnering with ambitious businesses and global brands to build sharp positioning, AI-powered products, and high-impact creative.',
