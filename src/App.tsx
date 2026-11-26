@@ -140,18 +140,18 @@ export default function App() {
         </div>
       </header>
 
-      {/* Hero Section */}
-      <section className="max-w-6xl mx-auto px-6 pt-16 pb-20 md:pt-24 md:pb-28">
-        <p className="text-xs font-semibold tracking-[0.2em] uppercase text-[#D46A38] mb-5">
+     {/* Hero Section */}
+      <section className="max-w-6xl mx-auto px-6 pt-12 pb-10 md:pt-16 md:pb-12">
+        <p className="text-xs font-semibold tracking-[0.2em] uppercase text-[#D46A38] mb-4">
           {t.hero.eyebrow}
         </p>
         <h1 className="text-4xl sm:text-5xl md:text-6xl font-semibold tracking-tight text-[#0F1E36] max-w-4xl leading-[1.08]">
           {t.hero.headline}
         </h1>
-        <p className="mt-6 text-lg md:text-xl text-[#0F1E36]/75 max-w-2xl leading-relaxed font-normal">
+        <p className="mt-5 text-lg md:text-xl text-[#0F1E36]/75 max-w-2xl leading-relaxed font-normal">
           {t.hero.subheadline}
         </p>
-        <div className="mt-10 flex flex-wrap items-center gap-4">
+        <div className="mt-8 flex flex-wrap items-center gap-4">
           <a
             href="#capabilities"
             className="squircle-pill bg-[#0F1E36] text-[#F6F3EC] hover:bg-[#D46A38] transition-colors px-7 py-3.5 text-sm font-medium inline-flex items-center gap-2"
@@ -168,10 +168,10 @@ export default function App() {
         </div>
       </section>
 
-{/* Selected Brand Experience Marquee (Centered to Page Width, Right Below Hero) */}
-      <section id="experience" className="max-w-6xl mx-auto px-6 pb-20">
-        <div className="border-t border-b border-[#0F1E36]/12 py-8">
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-6">
+      {/* Selected Brand Experience Marquee (Centered to Page Width, Right Below Hero) */}
+      <section id="experience" className="max-w-6xl mx-auto px-6 pb-10">
+        <div className="border-t border-b border-[#0F1E36]/12 py-6">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-4">
             <p className="text-xs font-semibold tracking-[0.2em] uppercase text-[#D46A38]">
               {t.experience.eyebrow}
             </p>
@@ -187,16 +187,16 @@ export default function App() {
                 'linear-gradient(to right, transparent, black 8%, black 92%, transparent)',
             }}
           >
-            <div className="flex w-max animate-marquee items-center gap-14 py-2">
+            <div className="flex w-max animate-marquee items-center gap-16 py-2">
               {[...BRAND_LOGOS, ...BRAND_LOGOS].map((logo, idx) => (
                 <div
                   key={`${logo.name}-${idx}`}
-                  className="h-12 flex items-center justify-center shrink-0 opacity-75 hover:opacity-100 transition-opacity"
+                  className="h-12 flex items-center justify-center shrink-0 opacity-80 hover:opacity-100 transition-opacity"
                 >
                   <img
                     src={logo.src}
                     alt={logo.name}
-                    className="max-h-11 w-auto object-contain grayscale contrast-125"
+                    className={`max-h-10 w-auto object-contain grayscale contrast-125 mix-blend-multiply ${logo.scale ?? 'scale-100'}`}
                   />
                 </div>
               ))}
