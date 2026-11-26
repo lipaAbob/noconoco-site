@@ -225,7 +225,7 @@ export const DRAWERS: DrawerItem[] = [
       es: 'Diseñamos recorridos fluidos que conectan la interacción digital con la fidelización y el aumento real de ventas.',
     },
     projects: [
-      {
+     {
         id: 'goldpass',
         tag: {
           en: 'LOCAL LOYALTY & RETAIL FOOTFALL ENGINE',
@@ -243,7 +243,7 @@ export const DRAWERS: DrawerItem[] = [
         media: [
           {
             type: 'video',
-            src: '/assets/images/trailergoldpass.mp4',
+            src: 'https://www.youtube.com/embed/qgYZDFw35mc?autoplay=1&rel=0',
             caption: {
               en: 'GoldPass — Product Trailer & Local Ecosystem Overview',
               es: 'GoldPass — Tráiler de Producto y Ecosistema Local',
