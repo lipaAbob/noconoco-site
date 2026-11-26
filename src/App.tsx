@@ -441,7 +441,7 @@ export default function App() {
               )}
 
               <div className="squircle-thumb bg-[#0B1628] border border-[#F6F3EC]/15 overflow-hidden flex items-center justify-center max-h-[75vh] w-full">
-                {lightbox.items[lightbox.index].type === 'video' ? (
+               {lightbox.items[lightbox.index].type === 'video' ? (
                   <video
                     src={lightbox.items[lightbox.index].src}
                     controls
