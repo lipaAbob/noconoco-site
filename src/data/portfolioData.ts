@@ -428,7 +428,7 @@ export const COPY = {
       title: 'Have a challenge worth solving?',
       subtitle:
         'Whether launching a new AI product, repositioning an established business, or crafting a standout campaign—let’s build something unmistakable.',
-      emailLabel: 'hello@noconoco.es',
+      emailLabel: 'hola@noconoco.es',
       location: 'Madrid · Barcelona · Remote Worldwide',
     },
     footer: {
@@ -491,7 +491,7 @@ export const COPY = {
       title: '¿Tienes un reto que merece una gran solución?',
       subtitle:
         'Ya sea lanzar un nuevo producto con IA, reposicionar tu negocio o crear una campaña memorable, construyamos algo único.',
-      emailLabel: 'hello@noconoco.es',
+      emailLabel: 'hola@noconoco.es',
       location: 'Madrid · Barcelona · Proyectos Internacionales',
     },
     footer: {
