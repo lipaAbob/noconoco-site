@@ -43,13 +43,13 @@ export interface DrawerItem {
 
 export const BRAND_LOGOS = [
   { name: 'IBM', src: '/assets/logos/ibmlogo.png', scale: 1 },
-  { name: 'Prada', src: '/assets/logos/pradalogo.png', scale: 0.50 },
+  { name: 'Prada', src: '/assets/logos/pradalogo.png', scale: 0.65 },
   { name: 'Clinique', src: '/assets/logos/cliniquelogo.png', scale: 1 },
   { name: 'Triumph', src: '/assets/logos/triumphlogo.png', scale: 1.05 },
-  { name: 'Kenneth Cole', src: '/assets/logos/kenneth-colelogo.png', scale: 0.50 },
-  { name: 'Durex', src: '/assets/logos/durexlogo.png', scale: 1.55 },
-  { name: 'Clínica Cénit', src: '/assets/logos/cenitlogo.png', scale: 2.0 },
-  { name: 'EventMatch AI', src: '/assets/logos/eventmatchlogo.png', scale: 1.05 },
+  { name: 'Kenneth Cole', src: '/assets/logos/kenneth-colelogo.png', scale: 1.35 },
+  { name: 'Durex', src: '/assets/logos/durexlogo.png', scale: 1.25 },
+  { name: 'Clínica Cénit', src: '/assets/logos/cenitlogo.png', scale: 1.95 },
+  { name: 'EventMatch AI', src: '/assets/logos/eventmatchlogo.png', scale: 0.9 },
   { name: 'ExtraCity', src: '/assets/logos/extracitylogo.png', scale: 1.05 },
   { name: 'GoldPass', src: '/assets/logos/goldpasslogo2.png', scale: 1.3 },
   { name: 'MyMode', src: '/assets/logos/mymodelogo.png', scale: 1.15 },
