@@ -1,0 +1,26 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  .squircle-card {
+    border-radius: 28px;
+    corner-shape: squircle;
+  }
+  .squircle-panel {
+    border-radius: 38px;
+    corner-shape: squircle;
+  }
+  .squircle-thumb {
+    border-radius: 18px;
+    corner-shape: squircle;
+  }
+  .squircle-pill {
+    border-radius: 9999px;
+    corner-shape: squircle;
+  }
+}
+
+.marquee-wrapper:hover .animate-marquee {
+  animation-play-state: paused;
+}
