@@ -262,14 +262,14 @@ export const DRAWERS: DrawerItem[] = [
           en: 'Intent-driven mobile experience matching real-time user mood and proximity with curated local venues and instant redemption.',
           es: 'Experiencia móvil basada en intención que conecta el momento y la ubicación del usuario con comercios cercanos y canje inmediato.',
         },
-        coverSrc: '/assets/logos/mymodelogo2.png',
+        coverSrc: '/assets/logos/mymodelogo.png',
         coverFit: 'contain',
         coverFocal: 'object-center',
         actionType: 'lightbox',
         media: [
           {
             type: 'image',
-            src: '/assets/images/mymodeflow.jpg',
+            src: '/assets/images/mymodelogo2.jpg',
             caption: {
               en: 'MyMode — 3-Step Contextual User Journey & Redemption Flow',
               es: 'MyMode — Flujo Contextual de 3 Pasos y Canje en Tienda',
