@@ -168,9 +168,46 @@ export default function App() {
         </div>
       </section>
 
+{/* Selected Brand Experience Marquee (Centered to Page Width, Right Below Hero) */}
+      <section id="experience" className="max-w-6xl mx-auto px-6 pb-20">
+        <div className="border-t border-b border-[#0F1E36]/12 py-8">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-6">
+            <p className="text-xs font-semibold tracking-[0.2em] uppercase text-[#D46A38]">
+              {t.experience.eyebrow}
+            </p>
+            <p className="text-xs text-[#0F1E36]/60">{t.experience.caption}</p>
+          </div>
+
+          <div
+            className="marquee-wrapper relative w-full overflow-hidden"
+            style={{
+              maskImage:
+                'linear-gradient(to right, transparent, black 8%, black 92%, transparent)',
+              WebkitMaskImage:
+                'linear-gradient(to right, transparent, black 8%, black 92%, transparent)',
+            }}
+          >
+            <div className="flex w-max animate-marquee items-center gap-14 py-2">
+              {[...BRAND_LOGOS, ...BRAND_LOGOS].map((logo, idx) => (
+                <div
+                  key={`${logo.name}-${idx}`}
+                  className="h-12 flex items-center justify-center shrink-0 opacity-75 hover:opacity-100 transition-opacity"
+                >
+                  <img
+                    src={logo.src}
+                    alt={logo.name}
+                    className="max-h-11 w-auto object-contain grayscale contrast-125"
+                  />
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+      
       {/* Methodology Section */}
       <section id="methodology" className="max-w-6xl mx-auto px-6 pb-20">
-        <div className="border-t border-[#0F1E36]/12 pt-14">
+        <div className="pt-14">
           <p className="text-xs font-semibold tracking-[0.2em] uppercase text-[#D46A38] mb-3">
             {t.methodology.eyebrow}
           </p>
@@ -332,33 +369,6 @@ export default function App() {
                 </div>
               );
             })}
-          </div>
-        </div>
-      </section>
-
-      {/* Selected Brand Experience Marquee */}
-      <section id="experience" className="pb-24 overflow-hidden">
-        <div className="max-w-6xl mx-auto px-6 mb-8">
-          <p className="text-xs font-semibold tracking-[0.2em] uppercase text-[#D46A38]">
-            {t.experience.eyebrow}
-          </p>
-          <p className="text-sm text-[#0F1E36]/65 mt-1">{t.experience.caption}</p>
-        </div>
-
-        <div className="marquee-wrapper relative w-full border-y border-[#0F1E36]/10 bg-white/40 py-8">
-          <div className="flex w-max animate-marquee items-center gap-16 px-8">
-            {[...BRAND_LOGOS, ...BRAND_LOGOS].map((logo, idx) => (
-              <div
-                key={`${logo.name}-${idx}`}
-                className="h-10 flex items-center justify-center shrink-0 opacity-75 hover:opacity-100 transition-opacity"
-              >
-                <img
-                  src={logo.src}
-                  alt={logo.name}
-                  className="max-h-9 w-auto object-contain grayscale contrast-125"
-                />
-              </div>
-            ))}
           </div>
         </div>
       </section>
