@@ -196,8 +196,8 @@ export default function App() {
                   <img
                     src={logo.src}
                     alt={logo.name}
-                    style={{ transform: `scale(${logo.scale ?? 1})` }}
-                    className="max-h-10 w-auto object-contain grayscale contrast-125 mix-blend-multiply opacity-85 hover:opacity-100 transition-opacity"
+                    style={{ height: `${logo.height ?? 32}px` }}
+                    className="w-auto object-contain grayscale contrast-125 mix-blend-multiply opacity-85 hover:opacity-100 transition-opacity"
                   />
                 </div>
               ))}
