@@ -236,7 +236,7 @@ export const DRAWERS: DrawerItem[] = [
           en: 'Digital membership ecosystem connecting neighborhood businesses with high-intent local consumers through instant mobile rewards.',
           es: 'Ecosistema digital de membresía que conecta comercios locales con consumidores cercanos mediante recompensas móviles instantáneas.',
         },
-        coverSrc: '/assets/logos/goldpasslogo.png',
+        coverSrc: '/assets/logos/goldpasslogo2.png',
         coverFit: 'contain',
         coverFocal: 'object-center',
         actionType: 'video',
