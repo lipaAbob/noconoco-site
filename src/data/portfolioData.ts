@@ -390,7 +390,7 @@ export const COPY = {
     },
     methodology: {
       eyebrow: 'HOW WE WORK',
-      title: 'Clarity first. Execution without noise.',
+      title: 'Strategy. Solutions. Results.',
       steps: [
         {
           num: '01',
@@ -427,14 +427,16 @@ export const COPY = {
       eyebrow: 'NEXT STEP',
       title: 'Have a challenge worth solving?',
       subtitle:
-        'Whether launching a new AI product, repositioning an established business, or crafting a standout campaign—let’s build something unmistakable.',
+        'Whether launching a new AI product, repositioning an established business, or crafting a standout campaign, let’s build something unmistakable.',
       emailLabel: 'hola@noconoco.es',
-      location: 'Madrid · Barcelona · Remote Worldwide',
+      location: 'Spain · Worldwide',
+      form: {
+        namePlaceholder: 'Your name',
+        emailPlaceholder: 'Your email',
+        subjectPlaceholder: 'What are we building together?',
+        submitLabel: 'Send Inquiry',
+      },
     },
-    footer: {
-      rights: '© 2026 noconoco. All rights reserved.',
-    },
-  },
   es: {
     nav: {
       methodology: 'Metodología',
@@ -453,7 +455,7 @@ export const COPY = {
     },
     methodology: {
       eyebrow: 'CÓMO TRABAJAMOS',
-      title: 'Claridad primero. Ejecución sin ruido.',
+      title: 'Estrategia. Soluciones. Resultados.',
       steps: [
         {
           num: '01',
@@ -492,10 +494,11 @@ export const COPY = {
       subtitle:
         'Ya sea lanzar un nuevo producto con IA, reposicionar tu negocio o crear una campaña memorable, construyamos algo único.',
       emailLabel: 'hola@noconoco.es',
-      location: 'Madrid · Barcelona · Proyectos Internacionales',
+      location: 'España · Proyectos Internacionales',
+      form: {
+        namePlaceholder: 'Tu nombre',
+        emailPlaceholder: 'Tu correo electrónico',
+        subjectPlaceholder: '¿Qué reto quieres resolver?',
+        submitLabel: 'Enviar Mensaje',
+      },
     },
-    footer: {
-      rights: '© 2026 noconoco. Todos los derechos reservados.',
-    },
-  },
-};
