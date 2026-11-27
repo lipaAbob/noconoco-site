@@ -15,6 +15,7 @@ import { BRAND_LOGOS, COPY, DRAWERS, Lang, MediaItem, ProjectItem } from './data
 export default function App() {
   const [lang, setLang] = useState<Lang>('en');
   const [openDrawer, setOpenDrawer] = useState<string | null>('01');
+  const [isScrolled, setIsScrolled] = useState(false);
   const [lightbox, setLightbox] = useState<{
     title: string;
     items: MediaItem[];
@@ -22,6 +23,14 @@ export default function App() {
   } | null>(null);
 
   const t = COPY[lang];
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 36);
+    };
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   const toggleDrawer = (num: string) => {
     setOpenDrawer((prev) => (prev === num ? null : num));
@@ -76,14 +85,34 @@ export default function App() {
 
   return (
     <div className="min-h-screen bg-[#F6F3EC] text-[#0F1E36] font-sans overflow-x-hidden">
-      {/* Top Navigation */}
-      <header className="sticky top-0 z-40 bg-[#F6F3EC]/90 backdrop-blur-md border-b border-[#0F1E36]/10">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 h-16 sm:h-20 flex items-center justify-between gap-2">
+      {/* Top Navigation (Morphing Logo on Scroll) */}
+      <header
+        className={`sticky top-0 z-40 transition-all duration-300 border-b border-[#0F1E36]/10 ${
+          isScrolled
+            ? 'bg-[#F6F3EC]/95 backdrop-blur-md shadow-xs'
+            : 'bg-[#F6F3EC]/85 backdrop-blur-sm'
+        }`}
+      >
+        <div
+          className={`max-w-6xl mx-auto px-4 sm:px-6 flex items-center justify-between gap-2 transition-all duration-300 ${
+            isScrolled ? 'h-16 sm:h-20' : 'h-20 sm:h-28'
+          }`}
+        >
           <a href="#" className="flex flex-col leading-none group shrink-0">
-            <span className="text-xl sm:text-2xl font-bold tracking-tight text-[#0F1E36]">
+            <span
+              className={`font-bold tracking-tight text-[#0F1E36] transition-all duration-300 ${
+                isScrolled ? 'text-xl sm:text-2xl' : 'text-3xl sm:text-4xl'
+              }`}
+            >
               noco<span className="text-[#D46A38]">noco</span>
             </span>
-            <span className="hidden sm:block text-[9px] tracking-[0.22em] uppercase text-[#0F1E36]/60 mt-1">
+            <span
+              className={`tracking-[0.22em] uppercase text-[#0F1E36]/65 transition-all duration-300 overflow-hidden ${
+                isScrolled
+                  ? 'max-h-0 opacity-0 mt-0 text-[8px]'
+                  : 'max-h-6 opacity-100 mt-1.5 text-[8px] sm:text-[10px]'
+              }`}
+            >
               Turning Challenges Into Results
             </span>
           </a>
@@ -141,10 +170,15 @@ export default function App() {
       </header>
 
       {/* Hero Section */}
-      <section className="max-w-6xl mx-auto px-5 sm:px-6 pt-10 pb-8 md:pt-16 md:pb-10">
-        <p className="text-[11px] sm:text-xs font-semibold tracking-[0.2em] uppercase text-[#D46A38] mb-3 sm:mb-4">
-          {t.hero.eyebrow}
-        </p>
+      <section className="max-w-6xl mx-auto px-5 sm:px-6 pt-8 pb-8 md:pt-12 md:pb-10">
+        {/* Highlighted Pillars Badge */}
+        <div className="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-[#D46A38]/12 border border-[#D46A38]/30 mb-5">
+          <span className="w-1.5 h-1.5 rounded-full bg-[#D46A38]" />
+          <p className="text-[11px] sm:text-xs font-bold tracking-[0.22em] uppercase text-[#0F1E36]">
+            {t.hero.eyebrow}
+          </p>
+        </div>
+
         <h1 className="text-[32px] sm:text-5xl md:text-6xl font-semibold tracking-tight text-[#0F1E36] max-w-4xl leading-[1.12]">
           {t.hero.headline}
         </h1>
@@ -249,7 +283,7 @@ export default function App() {
             </p>
           </div>
 
-          <div className="divide-y divide-[#F6F3EC]/12 border-t border-b border-[#F6F3EC]/12">
+          <div className="divide-y divide-[#F6F3EC]/20 border-t border-b border-[#F6F3EC]/20">
             {DRAWERS.map((drawer) => {
               const isOpen = openDrawer === drawer.number;
               return (
@@ -280,15 +314,27 @@ export default function App() {
                       </div>
                     </div>
 
-                    <span
-                      className={`w-8 h-8 sm:w-9 sm:h-9 rounded-full flex items-center justify-center shrink-0 transition-all duration-300 ${
-                        isOpen
-                          ? 'bg-[#D46A38] text-[#F6F3EC] rotate-45'
-                          : 'bg-[#F6F3EC]/10 text-[#F6F3EC] group-hover:bg-[#D46A38]'
-                      }`}
-                    >
-                      <Plus className="w-4 h-4" />
-                    </span>
+                    {/* Clear Interactive Action Pill + Plus Icon */}
+                    <div className="flex items-center gap-2 shrink-0">
+                      <span className="hidden sm:inline-block text-[11px] font-semibold tracking-wider uppercase text-[#D46A38]/90 group-hover:text-[#D46A38]">
+                        {isOpen
+                          ? lang === 'en'
+                            ? 'Close'
+                            : 'Cerrar'
+                          : lang === 'en'
+                          ? 'Explore'
+                          : 'Ver'}
+                      </span>
+                      <span
+                        className={`w-8 h-8 sm:w-9 sm:h-9 rounded-full flex items-center justify-center transition-all duration-300 ${
+                          isOpen
+                            ? 'bg-[#D46A38] text-[#F6F3EC] rotate-45 shadow-sm'
+                            : 'bg-[#D46A38]/20 border border-[#D46A38]/70 text-[#D46A38] group-hover:bg-[#D46A38] group-hover:text-[#F6F3EC]'
+                        }`}
+                      >
+                        <Plus className="w-4 h-4" />
+                      </span>
+                    </div>
                   </button>
 
                   {/* Drawer Content */}
@@ -322,7 +368,7 @@ export default function App() {
                               </p>
                             </div>
 
-                            {/* Clean Preview Frame (Eager Loading for Mobile Reliability) */}
+                            {/* Clean Preview Frame */}
                             <div className="mt-4 sm:mt-5">
                               <div
                                 className={`squircle-thumb relative w-full aspect-[16/10] overflow-hidden border border-[#F6F3EC]/10 ${
