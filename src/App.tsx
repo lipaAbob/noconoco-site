@@ -169,7 +169,7 @@ export default function App() {
 
       {/* Centered Brand Opening Banner - Static & Clean */}
       <div className="w-full">
-        <div className="max-w-6xl mx-auto px-5 sm:px-6 pt-7 pb-3 sm:pt-9 sm:pb-5 flex flex-col items-center justify-center text-center">
+        <div className="max-w-6xl mx-auto px-5 sm:px-6 pt-8 sm:pt-10 pb-0 flex flex-col items-center justify-center text-center">
           <div className="text-5xl sm:text-7xl md:text-8xl font-bold tracking-tight text-[#0F1E36] leading-none">
             noco<span className="text-[#D46A38]">noco</span>
           </div>
@@ -180,7 +180,7 @@ export default function App() {
       </div>
 
       {/* Hero Section */}
-      <section className="max-w-6xl mx-auto px-5 sm:px-6 pt-8 pb-8 md:pt-10 md:pb-10">
+      <section className="max-w-6xl mx-auto px-5 sm:px-6 pt-8 sm:pt-10 pb-8 md:pb-10">
         <h1 className="text-[32px] sm:text-5xl md:text-6xl font-semibold tracking-tight text-[#0F1E36] max-w-4xl leading-[1.12]">
           {t.hero.headline}
         </h1>
