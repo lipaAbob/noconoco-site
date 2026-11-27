@@ -87,30 +87,37 @@ export default function App() {
     <div className="min-h-screen bg-[#F6F3EC] text-[#0F1E36] font-sans overflow-x-hidden">
       {/* Top Navigation (Morphing Logo on Scroll) */}
       <header
+       header ...> ... </header> (סביבות שורות 87-159) בקוד המדויק הזה:
+
+TypeScript
+      {/* Top Navigation (Dominant Morphing Logo + Terracotta CTA) */}
+      <header
         className={`sticky top-0 z-40 transition-all duration-300 border-b border-[#0F1E36]/10 ${
           isScrolled
             ? 'bg-[#F6F3EC]/95 backdrop-blur-md shadow-xs'
-            : 'bg-[#F6F3EC]/85 backdrop-blur-sm'
+            : 'bg-[#F6F3EC]/90 backdrop-blur-sm'
         }`}
       >
         <div
           className={`max-w-6xl mx-auto px-4 sm:px-6 flex items-center justify-between gap-2 transition-all duration-300 ${
-            isScrolled ? 'h-16 sm:h-20' : 'h-20 sm:h-28'
+            isScrolled ? 'py-3.5 sm:py-4' : 'py-6 sm:py-8'
           }`}
         >
           <a href="#" className="flex flex-col leading-none group shrink-0">
             <span
-              className={`font-bold tracking-tight text-[#0F1E36] transition-all duration-300 ${
-                isScrolled ? 'text-xl sm:text-2xl' : 'text-3xl sm:text-4xl'
-              }`}
+              style={{
+                fontSize: isScrolled ? '1.55rem' : 'clamp(2.25rem, 4vw, 3.25rem)',
+                lineHeight: 0.95,
+              }}
+              className="font-bold tracking-tight text-[#0F1E36] transition-all duration-300"
             >
               noco<span className="text-[#D46A38]">noco</span>
             </span>
             <span
-              className={`tracking-[0.22em] uppercase text-[#0F1E36]/65 transition-all duration-300 overflow-hidden ${
+              className={`tracking-[0.24em] uppercase font-medium text-[#0F1E36]/70 transition-all duration-300 overflow-hidden ${
                 isScrolled
-                  ? 'max-h-0 opacity-0 mt-0 text-[8px]'
-                  : 'max-h-6 opacity-100 mt-1.5 text-[8px] sm:text-[10px]'
+                  ? 'max-h-0 opacity-0 mt-0 text-[9px]'
+                  : 'max-h-8 opacity-100 mt-2 text-[9px] sm:text-[11px]'
               }`}
             >
               Turning Challenges Into Results
@@ -161,7 +168,7 @@ export default function App() {
 
             <a
               href="#contact"
-              className="squircle-pill bg-[#0F1E36] text-[#F6F3EC] hover:bg-[#D46A38] transition-colors px-3.5 py-2 sm:px-5 sm:py-2.5 text-xs sm:text-sm font-medium whitespace-nowrap"
+              className="squircle-pill bg-[#D46A38] text-[#F6F3EC] hover:bg-[#0F1E36] transition-colors px-4 py-2 sm:px-5 sm:py-2.5 text-xs sm:text-sm font-medium whitespace-nowrap shadow-xs"
             >
               {t.nav.cta}
             </a>
