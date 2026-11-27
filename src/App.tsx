@@ -103,8 +103,8 @@ export default function App() {
 
   return (
     <div className="min-h-screen bg-[#F6F3EC] text-[#0F1E36] font-sans overflow-x-hidden">
-      {/* Top Sticky Header - Always visible and stable */}
-      <header className="sticky top-0 z-40 bg-[#F6F3EC]/95 backdrop-blur-md border-b border-[#0F1E36]/10">
+      {/* Top Fixed Header - Always locked at the top */}
+      <header className="fixed top-0 left-0 right-0 z-40 bg-[#F6F3EC]/95 backdrop-blur-md border-b border-[#0F1E36]/10">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 h-16 sm:h-20 flex items-center justify-between gap-2">
           <a href="#" className="flex flex-col leading-none group shrink-0">
             <span className="text-xl sm:text-2xl font-bold tracking-tight text-[#0F1E36]">
@@ -168,7 +168,7 @@ export default function App() {
       </header>
 
       {/* Centered Brand Opening Banner - Static & Clean */}
-      <div className="w-full">
+      <div className="w-full pt-16 sm:pt-20">
         <div className="max-w-6xl mx-auto px-5 sm:px-6 pt-8 sm:pt-10 pb-0 flex flex-col items-center justify-center text-center">
           <div className="text-5xl sm:text-7xl md:text-8xl font-bold tracking-tight text-[#0F1E36] leading-none">
             noco<span className="text-[#D46A38]">noco</span>
@@ -206,7 +206,7 @@ export default function App() {
 
       {/* Selected Brand Experience Marquee */}
       <section id="experience" className="max-w-6xl mx-auto px-5 sm:px-6 pb-8">
-        <div className="border-t border-b border-[#0F1E36]/12 py-5 sm:py-6">
+        <div className="border-t border-b border-[#0F1E36]/12 pt-6 pb-5 sm:pt-7 sm:pb-6">
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1.5 sm:gap-2 mb-4">
             <p className="text-[11px] sm:text-xs font-semibold tracking-[0.2em] uppercase text-[#D46A38]">
               {t.experience.eyebrow}
@@ -243,7 +243,7 @@ export default function App() {
       </section>
 
       {/* Methodology Section */}
-      <section id="methodology" className="max-w-6xl mx-auto px-5 sm:px-6 pt-3 pb-10">
+      <section id="methodology" className="max-w-6xl mx-auto px-5 sm:px-6 pt-4 sm:pt-6 pb-12">
         <div>
           <p className="text-[11px] sm:text-xs font-semibold tracking-[0.2em] uppercase text-[#D46A38] mb-2">
             {t.methodology.eyebrow}
