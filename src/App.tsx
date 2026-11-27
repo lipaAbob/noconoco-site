@@ -26,7 +26,7 @@ export default function App() {
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 36);
+      setIsScrolled(window.scrollY > 40);
     };
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
@@ -85,37 +85,20 @@ export default function App() {
 
   return (
     <div className="min-h-screen bg-[#F6F3EC] text-[#0F1E36] font-sans overflow-x-hidden">
-      {/* Top Navigation (Morphing Logo on Scroll) */}
-      {/* Top Navigation (Dominant Morphing Logo + Terracotta CTA) */}
+      {/* Top Sticky Header - Reveals smoothly on scroll */}
       <header
-        className={`sticky top-0 z-40 transition-all duration-300 border-b border-[#0F1E36]/10 ${
+        className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 border-b ${
           isScrolled
-            ? 'bg-[#F6F3EC]/95 backdrop-blur-md shadow-xs'
-            : 'bg-[#F6F3EC]/90 backdrop-blur-sm'
+            ? 'translate-y-0 opacity-100 bg-[#F6F3EC]/95 backdrop-blur-md border-[#0F1E36]/10 shadow-xs pointer-events-auto'
+            : '-translate-y-full opacity-0 border-transparent pointer-events-none'
         }`}
       >
-        <div
-          className={`max-w-6xl mx-auto px-4 sm:px-6 flex items-center justify-between gap-2 transition-all duration-300 ${
-            isScrolled ? 'py-3.5 sm:py-4' : 'py-6 sm:py-8'
-          }`}
-        >
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 h-16 sm:h-20 flex items-center justify-between gap-2">
           <a href="#" className="flex flex-col leading-none group shrink-0">
-            <span
-              style={{
-                fontSize: isScrolled ? '1.55rem' : 'clamp(2.25rem, 4vw, 3.25rem)',
-                lineHeight: 0.95,
-              }}
-              className="font-bold tracking-tight text-[#0F1E36] transition-all duration-300"
-            >
+            <span className="text-xl sm:text-2xl font-bold tracking-tight text-[#0F1E36]">
               noco<span className="text-[#D46A38]">noco</span>
             </span>
-            <span
-              className={`tracking-[0.24em] uppercase font-medium text-[#0F1E36]/70 transition-all duration-300 overflow-hidden ${
-                isScrolled
-                  ? 'max-h-0 opacity-0 mt-0 text-[9px]'
-                  : 'max-h-8 opacity-100 mt-2 text-[9px] sm:text-[11px]'
-              }`}
-            >
+            <span className="hidden sm:block text-[9px] tracking-[0.22em] uppercase text-[#0F1E36]/60 mt-1">
               Turning Challenges Into Results
             </span>
           </a>
@@ -172,8 +155,24 @@ export default function App() {
         </div>
       </header>
 
+      {/* Centered Brand Opening Banner (Retreats smoothly as sticky header appears) */}
+      <div
+        className={`w-full border-b border-[#0F1E36]/10 transition-all duration-300 ${
+          isScrolled ? 'opacity-0 scale-95' : 'opacity-100 scale-100'
+        }`}
+      >
+        <div className="max-w-6xl mx-auto px-5 sm:px-6 pt-10 pb-8 sm:pt-12 sm:pb-10 flex flex-col items-center justify-center text-center">
+          <div className="text-5xl sm:text-7xl md:text-8xl font-bold tracking-tight text-[#0F1E36] leading-none">
+            noco<span className="text-[#D46A38]">noco</span>
+          </div>
+          <p className="mt-3 sm:mt-4 text-[11px] sm:text-sm font-semibold tracking-[0.28em] uppercase text-[#0F1E36]/65">
+            Turning Challenges Into Results
+          </p>
+        </div>
+      </div>
+
       {/* Hero Section */}
-      <section className="max-w-6xl mx-auto px-5 sm:px-6 pt-8 pb-8 md:pt-12 md:pb-10">
+      <section className="max-w-6xl mx-auto px-5 sm:px-6 pt-8 pb-8 md:pt-10 md:pb-10">
         {/* Highlighted Pillars Badge */}
         <div className="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-[#D46A38]/12 border border-[#D46A38]/30 mb-5">
           <span className="w-1.5 h-1.5 rounded-full bg-[#D46A38]" />
@@ -436,110 +435,4 @@ export default function App() {
               {t.contact.subtitle}
             </p>
             <div className="mt-4 sm:mt-5 flex items-center gap-2 text-xs font-medium text-[#F6F3EC]/85">
-              <MapPin className="w-3.5 h-3.5 text-[#F6F3EC] shrink-0" />
-              <span>{t.contact.location}</span>
-            </div>
-          </div>
-
-          <div className="shrink-0">
-            <a
-              href={`mailto:${t.contact.emailLabel}`}
-              className="squircle-pill bg-[#0F1E36] text-[#F6F3EC] hover:bg-[#0F1E36]/90 transition-colors px-6 py-3.5 sm:px-7 sm:py-4 text-sm font-medium inline-flex items-center justify-center gap-2.5 shadow-md w-full sm:w-auto"
-            >
-              <Mail className="w-4 h-4" />
-              {t.contact.emailLabel}
-            </a>
-          </div>
-        </div>
-
-        <footer className="mt-8 sm:mt-10 pt-6 border-t border-[#0F1E36]/10 flex flex-col sm:flex-row items-center justify-between text-xs text-[#0F1E36]/55 gap-2">
-          <span>{t.footer.rights}</span>
-          <span>noconoco.es</span>
-        </footer>
-      </section>
-
-      {/* True Dark-Backdrop Lightbox (YouTube & Full Uncropped Media) */}
-      {lightbox && (
-        <div
-          onClick={closeLightbox}
-          className="fixed inset-0 z-50 bg-[#08101E]/90 backdrop-blur-md flex items-center justify-center p-3 sm:p-8"
-        >
-          <div
-            onClick={(e) => e.stopPropagation()}
-            className="relative w-full max-w-5xl flex flex-col items-center"
-          >
-            {/* Top Bar */}
-            <div className="w-full flex items-center justify-between text-[#F6F3EC] mb-3 sm:mb-4 px-1 gap-3">
-              <div>
-                <h3 className="text-sm sm:text-lg font-semibold">{lightbox.title}</h3>
-                <p className="text-[11px] sm:text-xs text-[#F6F3EC]/70">
-                  {lightbox.items[lightbox.index].caption[lang]}
-                </p>
-              </div>
-              <button
-                type="button"
-                onClick={closeLightbox}
-                aria-label="Close"
-                className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-[#F6F3EC]/10 hover:bg-[#D46A38] text-[#F6F3EC] flex items-center justify-center shrink-0 transition-colors"
-              >
-                <X className="w-5 h-5" />
-              </button>
-            </div>
-
-            {/* Media Stage + External Navigation Buttons */}
-            <div className="w-full flex items-center justify-center gap-2 sm:gap-5">
-              {lightbox.items.length > 1 && (
-                <button
-                  type="button"
-                  onClick={prevMedia}
-                  aria-label="Previous"
-                  className="w-9 h-9 sm:w-11 sm:h-11 rounded-full bg-[#F6F3EC]/12 hover:bg-[#D46A38] text-[#F6F3EC] flex items-center justify-center shrink-0 transition-colors"
-                >
-                  <ChevronLeft className="w-5 h-5" />
-                </button>
-              )}
-
-              <div className="squircle-thumb bg-[#0B1628] border border-[#F6F3EC]/15 overflow-hidden flex items-center justify-center max-h-[75vh] w-full">
-                {lightbox.items[lightbox.index].type === 'video' ? (
-                  <div className="w-full aspect-video max-h-[75vh]">
-                    <iframe
-                      src={lightbox.items[lightbox.index].src}
-                      title={lightbox.title}
-                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                      allowFullScreen
-                      className="w-full h-full border-0"
-                    />
-                  </div>
-                ) : (
-                  <img
-                    src={lightbox.items[lightbox.index].src}
-                    alt={lightbox.items[lightbox.index].caption[lang]}
-                    className="max-h-[75vh] w-auto max-w-full object-contain"
-                  />
-                )}
-              </div>
-
-              {lightbox.items.length > 1 && (
-                <button
-                  type="button"
-                  onClick={nextMedia}
-                  aria-label="Next"
-                  className="w-9 h-9 sm:w-11 sm:h-11 rounded-full bg-[#F6F3EC]/12 hover:bg-[#D46A38] text-[#F6F3EC] flex items-center justify-center shrink-0 transition-colors"
-                >
-                  <ChevronRight className="w-5 h-5" />
-                </button>
-              )}
-            </div>
-
-            {/* Counter Pill */}
-            {lightbox.items.length > 1 && (
-              <div className="mt-3 sm:mt-4 px-3.5 py-1 rounded-full bg-[#F6F3EC]/10 text-xs font-medium text-[#F6F3EC]/80">
-                {lightbox.index + 1} / {lightbox.items.length}
-              </div>
-            )}
-          </div>
-        </div>
-      )}
-    </div>
-  );
-}
+              <MapPin className="w-3.5 h-3.5 text-[#F6F3EC]
