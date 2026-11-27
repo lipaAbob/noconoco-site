@@ -29,9 +29,9 @@ export default function App() {
 
   const t = COPY[lang];
 
-  useEffect(() => {
+ useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 40);
+      setIsScrolled(window.scrollY > 110);
     };
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
@@ -103,16 +103,23 @@ export default function App() {
 
   return (
     <div className="min-h-screen bg-[#F6F3EC] text-[#0F1E36] font-sans overflow-x-hidden">
-      {/* Top Sticky Header - Reveals smoothly on scroll */}
+      {/* Top Sticky Header - Smoothly reveals small logo on scroll */}
       <header
-        className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 border-b ${
+        className={`sticky top-0 z-40 transition-all duration-500 ease-out border-b ${
           isScrolled
-            ? 'translate-y-0 opacity-100 bg-[#F6F3EC]/95 backdrop-blur-md border-[#0F1E36]/10 shadow-xs pointer-events-auto'
-            : '-translate-y-full opacity-0 border-transparent pointer-events-none'
+            ? 'bg-[#F6F3EC]/95 backdrop-blur-md border-[#0F1E36]/10 shadow-xs'
+            : 'bg-[#F6F3EC]/80 backdrop-blur-xs border-transparent'
         }`}
       >
         <div className="max-w-6xl mx-auto px-4 sm:px-6 h-16 sm:h-20 flex items-center justify-between gap-2">
-          <a href="#" className="flex flex-col leading-none group shrink-0">
+          <a
+            href="#"
+            className={`flex flex-col leading-none group shrink-0 transition-all duration-500 ease-out ${
+              isScrolled
+                ? 'opacity-100 translate-y-0 pointer-events-auto'
+                : 'opacity-0 -translate-y-2 pointer-events-none'
+            }`}
+          >
             <span className="text-xl sm:text-2xl font-bold tracking-tight text-[#0F1E36]">
               noco<span className="text-[#D46A38]">noco</span>
             </span>
@@ -173,13 +180,13 @@ export default function App() {
         </div>
       </header>
 
-      {/* Centered Brand Opening Banner (Retreats smoothly as sticky header appears) */}
+      {/* Centered Brand Opening Banner */}
       <div
-        className={`w-full border-b border-[#0F1E36]/10 transition-all duration-300 ${
-          isScrolled ? 'opacity-0 scale-95' : 'opacity-100 scale-100'
+        className={`w-full border-b border-[#0F1E36]/10 transition-all duration-500 ease-out ${
+          isScrolled ? 'opacity-0 -translate-y-3 pointer-events-none' : 'opacity-100 translate-y-0'
         }`}
       >
-        <div className="max-w-6xl mx-auto px-5 sm:px-6 pt-10 pb-8 sm:pt-12 sm:pb-10 flex flex-col items-center justify-center text-center">
+        <div className="max-w-6xl mx-auto px-5 sm:px-6 pt-6 pb-6 sm:pt-8 sm:pb-8 flex flex-col items-center justify-center text-center">
           <div className="text-5xl sm:text-7xl md:text-8xl font-bold tracking-tight text-[#0F1E36] leading-none">
             noco<span className="text-[#D46A38]">noco</span>
           </div>
