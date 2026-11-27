@@ -205,7 +205,7 @@ export default function App() {
       </section>
 
       {/* Selected Brand Experience Marquee */}
-      <section id="experience" className="max-w-6xl mx-auto px-5 sm:px-6 pb-8">
+      <section id="experience" className="max-w-6xl mx-auto px-5 sm:px-6 pb-10">
         <div className="border-t border-b border-[#0F1E36]/12 pt-6 pb-5 sm:pt-7 sm:pb-6">
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1.5 sm:gap-2 mb-4">
             <p className="text-[11px] sm:text-xs font-semibold tracking-[0.2em] uppercase text-[#D46A38]">
@@ -243,7 +243,7 @@ export default function App() {
       </section>
 
       {/* Methodology Section */}
-      <section id="methodology" className="max-w-6xl mx-auto px-5 sm:px-6 pt-4 sm:pt-6 pb-12">
+      <section id="methodology" className="max-w-6xl mx-auto px-5 sm:px-6 pt-0 pb-12">
         <div>
           <p className="text-[11px] sm:text-xs font-semibold tracking-[0.2em] uppercase text-[#D46A38] mb-2">
             {t.methodology.eyebrow}
