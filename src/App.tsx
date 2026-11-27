@@ -168,8 +168,8 @@ export default function App() {
       </header>
 
       {/* Centered Brand Opening Banner - Static & Clean */}
-      <div className="w-full border-b border-[#0F1E36]/10">
-        <div className="max-w-6xl mx-auto px-5 sm:px-6 pt-7 pb-7 sm:pt-9 sm:pb-9 flex flex-col items-center justify-center text-center">
+      <div className="w-full">
+        <div className="max-w-6xl mx-auto px-5 sm:px-6 pt-7 pb-4 sm:pt-9 sm:pb-5 flex flex-col items-center justify-center text-center">
           <div className="text-5xl sm:text-7xl md:text-8xl font-bold tracking-tight text-[#0F1E36] leading-none">
             noco<span className="text-[#D46A38]">noco</span>
           </div>
