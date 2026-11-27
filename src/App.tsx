@@ -183,7 +183,7 @@ export default function App() {
           <div className="text-5xl sm:text-7xl md:text-8xl font-bold tracking-tight text-[#0F1E36] leading-none">
             noco<span className="text-[#D46A38]">noco</span>
           </div>
-          <p className="mt-3 sm:mt-4 text-[11px] sm:text-sm font-semibold tracking-[0.28em] uppercase text-[#0F1E36]/65">
+          <p className="mt-1 sm:mt-1.5 text-[11px] sm:text-sm font-semibold tracking-[0.28em] uppercase text-[#0F1E36]/65">
             Turning Challenges Into Results
           </p>
         </div>
