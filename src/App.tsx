@@ -243,7 +243,7 @@ export default function App() {
       </section>
 
       {/* Methodology Section */}
-      <section id="methodology" className="max-w-6xl mx-auto px-5 sm:px-6 pt-0 pb-12">
+      <section id="methodology" className="max-w-6xl mx-auto px-5 sm:px-6 pt-0 pb-10">
         <div>
           <p className="text-[11px] sm:text-xs font-semibold tracking-[0.2em] uppercase text-[#D46A38] mb-2">
             {t.methodology.eyebrow}
