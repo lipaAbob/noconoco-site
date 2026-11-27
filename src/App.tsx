@@ -86,10 +86,6 @@ export default function App() {
   return (
     <div className="min-h-screen bg-[#F6F3EC] text-[#0F1E36] font-sans overflow-x-hidden">
       {/* Top Navigation (Morphing Logo on Scroll) */}
-      <header
-       header ...> ... </header> (סביבות שורות 87-159) בקוד המדויק הזה:
-
-TypeScript
       {/* Top Navigation (Dominant Morphing Logo + Terracotta CTA) */}
       <header
         className={`sticky top-0 z-40 transition-all duration-300 border-b border-[#0F1E36]/10 ${
