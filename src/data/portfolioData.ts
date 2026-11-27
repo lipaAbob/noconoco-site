@@ -225,7 +225,7 @@ export const DRAWERS: DrawerItem[] = [
       es: 'Diseñamos recorridos fluidos que conectan la interacción digital con la fidelización y el aumento real de ventas.',
     },
     projects: [
-     {
+      {
         id: 'goldpass',
         tag: {
           en: 'LOCAL LOYALTY & RETAIL FOOTFALL ENGINE',
@@ -262,7 +262,7 @@ export const DRAWERS: DrawerItem[] = [
           en: 'Intent-driven mobile experience matching real-time user mood and proximity with curated local venues and instant redemption.',
           es: 'Experiencia móvil basada en intención que conecta el momento y la ubicación del usuario con comercios cercanos y canje inmediato.',
         },
-        coverSrc: '/assets/logos/mymodelogo2.png',
+        coverSrc: '/assets/logos/mymodelogo.png',
         coverFit: 'contain',
         coverFocal: 'object-center',
         actionType: 'lightbox',
@@ -437,6 +437,10 @@ export const COPY = {
         submitLabel: 'Send Inquiry',
       },
     },
+    footer: {
+      rights: '© 2026 noconoco. All rights reserved.',
+    },
+  },
   es: {
     nav: {
       methodology: 'Metodología',
@@ -446,7 +450,7 @@ export const COPY = {
       cta: 'Hablemos',
     },
     hero: {
-      eyebrow: 'ESTRATEGIA · PRODUCTOS IA · DIRECCIÓN CREATIVA',
+      eyebrow: 'ESTRATEGIA · SOLUCIONES · RESULTADOS',
       headline: 'Convertimos retos complejos en resultados claros y medibles.',
       subheadline:
         'noconoco es una consultora boutique que acompaña a empresas ambiciosas y marcas globales en posicionamiento estratégico, productos impulsados por IA y creatividad de alto impacto.',
@@ -502,3 +506,8 @@ export const COPY = {
         submitLabel: 'Enviar Mensaje',
       },
     },
+    footer: {
+      rights: '© 2026 noconoco. Todos los derechos reservados.',
+    },
+  },
+};
