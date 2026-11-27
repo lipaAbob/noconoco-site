@@ -16,6 +16,11 @@ export default function App() {
   const [lang, setLang] = useState<Lang>('en');
   const [openDrawer, setOpenDrawer] = useState<string | null>('01');
   const [isScrolled, setIsScrolled] = useState(false);
+  const [contactForm, setContactForm] = useState({
+    name: '',
+    email: '',
+    subject: '',
+  });
   const [lightbox, setLightbox] = useState<{
     title: string;
     items: MediaItem[];
@@ -31,6 +36,19 @@ export default function App() {
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  const handleContactSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    const subjectLine = encodeURIComponent(
+      contactForm.subject || (lang === 'en' ? 'New Project Inquiry' : 'Nueva consulta de proyecto')
+    );
+    const bodyLines = encodeURIComponent(
+      `${lang === 'en' ? 'Name' : 'Nombre'}: ${contactForm.name}\n` +
+        `${lang === 'en' ? 'Email' : 'Email'}: ${contactForm.email}\n\n` +
+        `${contactForm.subject}`
+    );
+    window.location.href = `mailto:${t.contact.emailLabel}?subject=${subjectLine}&body=${bodyLines}`;
+  };
 
   const toggleDrawer = (num: string) => {
     setOpenDrawer((prev) => (prev === num ? null : num));
@@ -173,14 +191,6 @@ export default function App() {
 
       {/* Hero Section */}
       <section className="max-w-6xl mx-auto px-5 sm:px-6 pt-8 pb-8 md:pt-10 md:pb-10">
-        {/* Highlighted Pillars Badge */}
-        <div className="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-[#D46A38]/12 border border-[#D46A38]/30 mb-5">
-          <span className="w-1.5 h-1.5 rounded-full bg-[#D46A38]" />
-          <p className="text-[11px] sm:text-xs font-bold tracking-[0.22em] uppercase text-[#0F1E36]">
-            {t.hero.eyebrow}
-          </p>
-        </div>
-
         <h1 className="text-[32px] sm:text-5xl md:text-6xl font-semibold tracking-tight text-[#0F1E36] max-w-4xl leading-[1.12]">
           {t.hero.headline}
         </h1>
@@ -421,10 +431,11 @@ export default function App() {
         </div>
       </section>
 
-      {/* Contact Section (Terracotta Squircle Box) */}
+      {/* Contact Section (Terracotta Squircle Box with Compact Mailto Form) */}
       <section id="contact" className="max-w-6xl mx-auto px-4 sm:px-6 pb-14 sm:pb-16">
-        <div className="squircle-card bg-[#D46A38] text-[#F6F3EC] p-6 sm:p-12 flex flex-col md:flex-row md:items-center justify-between gap-6 sm:gap-8 shadow-lg">
-          <div className="max-w-xl">
+        <div className="squircle-card bg-[#D46A38] text-[#F6F3EC] p-6 sm:p-12 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center shadow-lg">
+          {/* Left Column: Copy + Direct Email */}
+          <div className="lg:col-span-6">
             <p className="text-[11px] sm:text-xs font-semibold tracking-[0.2em] uppercase text-[#F6F3EC]/85 mb-2.5 sm:mb-3">
               {t.contact.eyebrow}
             </p>
@@ -434,5 +445,154 @@ export default function App() {
             <p className="mt-2.5 sm:mt-3 text-sm sm:text-base text-[#F6F3EC]/90 leading-relaxed">
               {t.contact.subtitle}
             </p>
-            <div className="mt-4 sm:mt-5 flex items-center gap-2 text-xs font-medium text-[#F6F3EC]/85">
-              <MapPin className="w-3.5 h-3.5 text-[#F6F3EC]
+
+            <div className="mt-6 flex flex-wrap items-center gap-4">
+              <a
+                href={`mailto:${t.contact.emailLabel}`}
+                className="squircle-pill bg-[#0F1E36]/15 hover:bg-[#0F1E36]/25 border border-[#F6F3EC]/25 text-[#F6F3EC] transition-colors px-4 py-2 text-xs sm:text-sm font-medium inline-flex items-center gap-2"
+              >
+                <Mail className="w-3.5 h-3.5" />
+                {t.contact.emailLabel}
+              </a>
+
+              <div className="flex items-center gap-1.5 text-xs font-medium text-[#F6F3EC]/90">
+                <MapPin className="w-3.5 h-3.5 text-[#F6F3EC] shrink-0" />
+                <span>{t.contact.location}</span>
+              </div>
+            </div>
+          </div>
+
+          {/* Right Column: Compact Inquiry Form */}
+          <form
+            onSubmit={handleContactSubmit}
+            className="lg:col-span-6 squircle-card bg-[#0F1E36]/12 border border-[#F6F3EC]/20 p-5 sm:p-6 flex flex-col gap-3"
+          >
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              <input
+                type="text"
+                required
+                value={contactForm.name}
+                onChange={(e) => setContactForm({ ...contactForm, name: e.target.value })}
+                placeholder={t.contact.form.namePlaceholder}
+                className="w-full rounded-xl bg-[#F6F3EC] text-[#0F1E36] placeholder-[#0F1E36]/50 px-3.5 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-[#0F1E36]"
+              />
+              <input
+                type="email"
+                required
+                value={contactForm.email}
+                onChange={(e) => setContactForm({ ...contactForm, email: e.target.value })}
+                placeholder={t.contact.form.emailPlaceholder}
+                className="w-full rounded-xl bg-[#F6F3EC] text-[#0F1E36] placeholder-[#0F1E36]/50 px-3.5 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-[#0F1E36]"
+              />
+            </div>
+
+            <input
+              type="text"
+              required
+              value={contactForm.subject}
+              onChange={(e) => setContactForm({ ...contactForm, subject: e.target.value })}
+              placeholder={t.contact.form.subjectPlaceholder}
+              className="w-full rounded-xl bg-[#F6F3EC] text-[#0F1E36] placeholder-[#0F1E36]/50 px-3.5 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-[#0F1E36]"
+            />
+
+            <button
+              type="submit"
+              className="mt-1 squircle-pill bg-[#0F1E36] text-[#F6F3EC] hover:bg-[#0F1E36]/90 transition-colors px-6 py-3 text-sm font-medium inline-flex items-center justify-center gap-2 shadow-md cursor-pointer"
+            >
+              <Mail className="w-4 h-4" />
+              {t.contact.form.submitLabel}
+            </button>
+          </form>
+        </div>
+
+        <footer className="mt-8 sm:mt-10 pt-6 border-t border-[#0F1E36]/10 flex flex-col sm:flex-row items-center justify-between text-xs text-[#0F1E36]/55 gap-2">
+          <span>{t.footer.rights}</span>
+          <span>noconoco.es</span>
+        </footer>
+      </section>
+
+      {/* True Dark-Backdrop Lightbox (YouTube & Full Uncropped Media) */}
+      {lightbox && (
+        <div
+          onClick={closeLightbox}
+          className="fixed inset-0 z-50 bg-[#08101E]/90 backdrop-blur-md flex items-center justify-center p-3 sm:p-8"
+        >
+          <div
+            onClick={(e) => e.stopPropagation()}
+            className="relative w-full max-w-5xl flex flex-col items-center"
+          >
+            {/* Top Bar */}
+            <div className="w-full flex items-center justify-between text-[#F6F3EC] mb-3 sm:mb-4 px-1 gap-3">
+              <div>
+                <h3 className="text-sm sm:text-lg font-semibold">{lightbox.title}</h3>
+                <p className="text-[11px] sm:text-xs text-[#F6F3EC]/70">
+                  {lightbox.items[lightbox.index].caption[lang]}
+                </p>
+              </div>
+              <button
+                type="button"
+                onClick={closeLightbox}
+                aria-label="Close"
+                className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-[#F6F3EC]/10 hover:bg-[#D46A38] text-[#F6F3EC] flex items-center justify-center shrink-0 transition-colors"
+              >
+                <X className="w-5 h-5" />
+              </button>
+            </div>
+
+            {/* Media Stage + External Navigation Buttons */}
+            <div className="w-full flex items-center justify-center gap-2 sm:gap-5">
+              {lightbox.items.length > 1 && (
+                <button
+                  type="button"
+                  onClick={prevMedia}
+                  aria-label="Previous"
+                  className="w-9 h-9 sm:w-11 sm:h-11 rounded-full bg-[#F6F3EC]/12 hover:bg-[#D46A38] text-[#F6F3EC] flex items-center justify-center shrink-0 transition-colors"
+                >
+                  <ChevronLeft className="w-5 h-5" />
+                </button>
+              )}
+
+              <div className="squircle-thumb bg-[#0B1628] border border-[#F6F3EC]/15 overflow-hidden flex items-center justify-center max-h-[75vh] w-full">
+                {lightbox.items[lightbox.index].type === 'video' ? (
+                  <div className="w-full aspect-video max-h-[75vh]">
+                    <iframe
+                      src={lightbox.items[lightbox.index].src}
+                      title={lightbox.title}
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      allowFullScreen
+                      className="w-full h-full border-0"
+                    />
+                  </div>
+                ) : (
+                  <img
+                    src={lightbox.items[lightbox.index].src}
+                    alt={lightbox.items[lightbox.index].caption[lang]}
+                    className="max-h-[75vh] w-auto max-w-full object-contain"
+                  />
+                )}
+              </div>
+
+              {lightbox.items.length > 1 && (
+                <button
+                  type="button"
+                  onClick={nextMedia}
+                  aria-label="Next"
+                  className="w-9 h-9 sm:w-11 sm:h-11 rounded-full bg-[#F6F3EC]/12 hover:bg-[#D46A38] text-[#F6F3EC] flex items-center justify-center shrink-0 transition-colors"
+                >
+                  <ChevronRight className="w-5 h-5" />
+                </button>
+              )}
+            </div>
+
+            {/* Counter Pill */}
+            {lightbox.items.length > 1 && (
+              <div className="mt-3 sm:mt-4 px-3.5 py-1 rounded-full bg-[#F6F3EC]/10 text-xs font-medium text-[#F6F3EC]/80">
+                {lightbox.index + 1} / {lightbox.items.length}
+              </div>
+            )}
+          </div>
+        </div>
+      )}
+    </div>
+  );
+}
